@@ -5,7 +5,7 @@
 	"manifest_version": 3,
 	"permissions": ["storage"],
 	
-	"host_permisions": ["https://dcccd.libwizard.com/forms/reports/*"],
+	"host_permissions": ["https://dcccd.libwizard.com/forms/reports/*"],
 	
 	"options_page": "options.html",
 
