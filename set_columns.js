@@ -2,7 +2,7 @@ function setColumns() {
 	//var remove = document.getElementById("currentFiltersLabel").getElementsByClassName("btn empty")[0];
 	//remove.click();
 	
-	var mapping = {
+	var mappingId = {
 		'checkbox-select': 'mat-checkbox-1-input',
 		'checkbox-submitted': 'mat-checkbox-2-input',
 		'checkbox-location': 'mat-checkbox-3-input',
@@ -32,6 +32,36 @@ function setColumns() {
 		'checkbox-additional-comments': 'mat-checkbox-27-input'
 	}
 	
+	var mappingName = {
+		'checkbox-select': 'select',
+		'checkbox-submitted': 'submitted',
+		'checkbox-location': '3894175',
+		'checkbox-arrival': '3916844',
+		'checkbox-fname': '3894171',
+		'checkbox-lname': '3894172',
+		'checkbox-studentid': '3894234',
+		'checkbox-college-email': '3894173',
+		'checkbox-alt-email': '3894242',
+		'checkbox-paper-comp-test': '3930754',
+		'checkbox-course-name-number': '3894174',
+		'checkbox-section-number': '3920767',
+		'checkbox-instructor': '3894177',
+		'checkbox-test-number': '3898085',
+		'checkbox-lecture-lab': '3898088',
+		'checkbox-staff-queue-number': '3917156',
+		'checkbox-staff-test-number': '3902617',
+		'checkbox-staff-seat-number': '3902618',
+		'checkbox-staff-scratch-paper': '3902619',
+		'checkbox-staff-graph-paper': '3902620',
+		'checkbox-staff-calculator': '3902621',
+		'checkbox-staff-permitted-items': '3902622',
+		'checkbox-staff-start-time': '3902624',
+		'checkbox-staff-end-time': '3902625',
+		'checkbox-staff-session-ended': '3902626',
+		'checkbox-academic-dishonesty': '3917251',
+		'checkbox-additional-comments': '3917254'
+	}
+	
 	//document.getElementById("mat-checkbox-2-input").ariaChecked = false;
 	// var test = document.getElementById("mat-checkbox-2-input").ariaChecked;
 	// console.log(test);
@@ -41,8 +71,13 @@ function setColumns() {
 	chrome.storage.local.get({checklist2}, function(obj) {
 		var list = obj.checklist2;
 		for (var i in list) {
-			var map = mapping[i];
-			var testChecked = document.getElementById(map).ariaChecked;
+			var map = mappingName[i];
+			var tag = document.getElementsByTagName("mat-checkbox");
+			//console.log(tag);
+			var tagName = document.getElementsByName(map)[0];
+			//console.log(tagName);
+			var testChecked = tagName.ariaChecked;
+			//var testChecked = document.getElementById(map).ariaChecked;
 			// console.log(map);
 			// console.log(testChecked);
 			// console.log(typeof testChecked);
@@ -56,7 +91,7 @@ function setColumns() {
 			}
 			
 			if (tempBoolean != list[i]) {
-				document.getElementById(map).click();
+				document.getElementsByName(map)[0].click();
 			}
 		}
 			
