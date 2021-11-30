@@ -10,7 +10,7 @@ function setFilters() {
 	var collegeOption = "";
 	chrome.storage.local.get({[v1]:"North Lake"}, function(obj) {
 		collegeOption = obj;
-		// console.log(collegeOption["collegeOption"]);
+		console.log(collegeOption["collegeOption"]);
 		// Set to specific College
 		document.getElementById("filterOptions").value = "0: Object";
 		document.getElementById("filterOptions").dispatchEvent(new Event('change'));
@@ -48,8 +48,7 @@ function setFilters() {
 	document.getElementById("filterValue").dispatchEvent(new Event('change'));
 	document.getElementsByClassName("btn btn-primary btn-block addFilter-button")[0].click();
 
-	document.getElementsByTagName("mat-expansion-panel-header")[0].click();
-	//document.getElementById("mat-expansion-panel-header-0").click();
+	document.getElementById("mat-expansion-panel-header-0").click();
 
 	//var objSelect = document.getElementById("filterOptions");
 	//setSelectedValue(objSelect, "Location");
