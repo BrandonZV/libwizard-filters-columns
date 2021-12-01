@@ -2,7 +2,12 @@ function injectTheScript_filters() {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         // query the active tab, which will be only one tab
         //and inject the script in it
-		chrome.tabs.executeScript(tabs[0].id, {file: "set_filters.js"});
+		chrome.scripting.executeScript(
+		{
+			target: {tabId: tabs[0].id},
+			files: ["set_filters.js"],
+		},
+		() => { });
     });
 }
 
@@ -11,7 +16,12 @@ function injectTheScript_columns() {
         // query the active tab, which will be only one tab
         //and inject the script in it
 		
-		chrome.tabs.executeScript(tabs[0].id, {file: "set_columns.js"});
+		chrome.scripting.executeScript(
+		{
+			target: {tabId: tabs[0].id},
+			files: ["set_columns.js"],
+		},
+		() => { });
     });
 }
 
@@ -33,7 +43,7 @@ function linkLibWizard() {
     });
 	//let tab = getCurrentTab();
 	
-	//chrome.tabs.executeScript(tab[0].id, {code: "load"});
+	//chrome.scripting.executeScript(tab[0].id, {code: "load"});
 	
 }
 
