@@ -1,15 +1,13 @@
 {
 	"name": "Set LibWizard Filters/Columns",
 	"description": "Quickly set filters and columns in LibWizard",
-	"version": "0.3",
-	"manifest_version": 3,
-	"permissions": ["storage", "scripting"],
-	
-	"host_permissions": ["https://dcccd.libwizard.com/forms/reports/*"],
+	"version": "0.2",
+	"manifest_version": 2,
+	"permissions": ["https://dcccd.libwizard.com/forms/reports/*", "storage"],
 	
 	"options_page": "options.html",
 
-	"action": {
+	"browser_action": {
 		"default_popup": "popup.html"
 	},
 	
