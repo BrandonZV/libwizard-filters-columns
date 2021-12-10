@@ -13,5 +13,13 @@
 		"default_popup": "popup.html"
 	},
 	
+	"content_scripts": [
+		{
+		  "matches": ["https://dcccd.libwizard.com/forms/reports/*"],
+		  "run_at": "document_idle",
+		  "js": ["autoApplyColumns.js"]
+		}
+	],
+	
 	"icons": { "240": "icon240.png"}
 }

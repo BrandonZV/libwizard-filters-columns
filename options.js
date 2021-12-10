@@ -31,6 +31,9 @@ function saveConfig(){
 		// console.log(obj)
 	// });
 	
+	var autoColumns = document.getElementById("auto-apply-columns").checked;
+	chrome.storage.local.set({"autoApplyColumns": autoColumns});
+	
 }
 function constructor(){
 	// console.log("constructor");
@@ -64,6 +67,11 @@ function constructor(){
 	chrome.storage.local.get("collegeOption", function(obj) {
 		// console.log(obj["collegeOption"]);
 		document.getElementById("college").value = obj["collegeOption"];
+	});
+	
+	chrome.storage.local.get("autoApplyColumns", function(obj) {
+		// console.log(obj["collegeOption"]);
+		document.getElementById("auto-apply-columns").checked = obj["autoApplyColumns"];
 	});
 	
 
