@@ -62,6 +62,8 @@ function setColumns() {
 		'checkbox-additional-comments': '3917254'
 	}
 	
+	// FIXME TODO UPDATE select box
+	// 'checkbox-select': 'select',
 	var mappingName = {
 		'checkbox-select': 'select',
 		'checkbox-submitted': 'submitted',

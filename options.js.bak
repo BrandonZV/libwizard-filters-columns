@@ -3,6 +3,8 @@ function saveConfig(){
 	var collegeOption = temp.value;
 	chrome.storage.local.set({"collegeOption": collegeOption});
 	
+	// FIXME TODO UPDATE select box
+	// 'checkbox-select',
 	var checklist = [
 						'checkbox-select',
 						'checkbox-submitted',

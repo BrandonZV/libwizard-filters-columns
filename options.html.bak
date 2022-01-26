@@ -28,7 +28,7 @@
 	<label for="checkbox-arrival-date-ms"> Arrival DAY Mon.-Sat.</label><br>
 	<input type="checkbox" id="checkbox-arrival-date-mf-nolunch" name="arrival-date-mf-nolunch" value="arrival-date-mf-nolunch" checked>
 	<label for="checkbox-arrival-date-mf-nolunch"> Arrival Day Mon.-Fri. no lunch break</label><br>
-	<input type="checkbox" id="checkbox-arrival-time-mt" name="arrival-time-mf" value="arrival-time-mf" checked>
+	<input type="checkbox" id="checkbox-arrival-time-mf" name="arrival-time-mf" value="arrival-time-mf" checked>
 	<label for="checkbox-arrival-time-mt"> Arrival TIME Mon.-Thu.</label><br>
 	<input type="checkbox" id="checkbox-arrival-time-f" name="arrival-time-f" value="arrival-time-f" checked>
 	<label for="checkbox-arrival-time-f"> Arrival TIME Friday</label><br>

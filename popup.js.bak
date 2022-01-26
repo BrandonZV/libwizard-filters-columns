@@ -71,7 +71,7 @@ document.getElementById('goLibWizard').addEventListener('click', linkLibWizard);
 
 document.getElementById('columns').addEventListener('click', injectTheScript_columns);
 
-// document.getElementById('refresh').addEventListener('click', injectTheScript_refresh);
+document.getElementById('refresh').addEventListener('click', injectTheScript_refresh);
 
 // chrome.storage.local.get("autoApplyColumns", function(obj) {
 	// console.log(obj["autoApplyColumns"]);
