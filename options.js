@@ -3,21 +3,51 @@ function saveConfig(){
 	var collegeOption = temp.value;
 	chrome.storage.local.set({"collegeOption": collegeOption});
 	
-	var checklist = ["checkbox-select", 'checkbox-submitted', 'checkbox-location', 'checkbox-arrival',
-						'checkbox-fname', 'checkbox-lname', 'checkbox-studentid', 'checkbox-college-email',
-						'checkbox-alt-email', 'checkbox-paper-comp-test', 'checkbox-course-name-number',
-						'checkbox-section-number', 'checkbox-instructor', 'checkbox-test-number',
-						'checkbox-lecture-lab', 'checkbox-staff-queue-number', 'checkbox-staff-test-number',
-						'checkbox-staff-seat-number', 'checkbox-staff-scratch-paper', 'checkbox-staff-graph-paper',
-						'checkbox-staff-calculator', 'checkbox-staff-permitted-items', 'checkbox-staff-start-time',
-						'checkbox-staff-end-time', 'checkbox-staff-session-ended', 'checkbox-academic-dishonesty',
+	var checklist = [
+						'checkbox-select',
+						'checkbox-submitted',
+						'checkbox-location',
+						'checkbox-arrival-date',
+						'checkbox-arrival-date-mf',
+						'checkbox-arrival-date-ms',
+						'checkbox-arrival-date-mf-nolunch',
+						'checkbox-arrival-time-mt',
+						'checkbox-arrival-time-f',
+						'checkbox-arrival-time-s',
+						'checkbox-arrival-time-nolunch',
+						'checkbox-fname',
+						'checkbox-lname',
+						'checkbox-studentid',
+						'checkbox-college-email',
+						'checkbox-alt-email',
+						'checkbox-lecture-lab',
+						'checkbox-phone-number',
+						'checkbox-paper-comp-test',
+						'checkbox-course-name-number',
+						'checkbox-section-number',
+						'checkbox-instructor',
+						'checkbox-test-number',
+						'checkbox-staff-queue-number',
+						'checkbox-staff-test-number',
+						'checkbox-staff-seat-number',
+						'checkbox-staff-scratch-paper',
+						'checkbox-staff-graph-paper',
+						'checkbox-staff-calculator',
+						'checkbox-staff-permitted-items',
+						'checkbox-staff-start-time',
+						'checkbox-staff-end-time',
+						'checkbox-staff-session-ended',
+						'checkbox-academic-dishonesty',
 						'checkbox-additional-comments'
 					];
 	
 	var checklist2 = {};
 	
 	for (i in checklist) {
+		// console.log(checklist[i]);
 		var tester = document.getElementById(checklist[0]).checked;
+		
+		// console.log(tester);
 		checklist2[checklist[i]] = document.getElementById(checklist[i]).checked;
 		
 	}
@@ -30,6 +60,9 @@ function saveConfig(){
 	// chrome.storage.local.get("checkbox-select", function(obj) {
 		// console.log(obj)
 	// });
+	
+	// var autoColumns = document.getElementById("auto-apply-columns").checked;
+	// chrome.storage.local.set({"autoApplyColumns": autoColumns});
 	
 }
 function constructor(){
@@ -65,6 +98,11 @@ function constructor(){
 		// console.log(obj["collegeOption"]);
 		document.getElementById("college").value = obj["collegeOption"];
 	});
+	
+	// chrome.storage.local.get("autoApplyColumns", function(obj) {
+		// console.log(obj["collegeOption"]);
+		// document.getElementById("auto-apply-columns").checked = obj["autoApplyColumns"];
+	// });
 	
 
 	 // TODO make this spretty, I'm just not skilled enough

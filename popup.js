@@ -25,6 +25,20 @@ function injectTheScript_columns() {
     });
 }
 
+// function injectTheScript_refresh() {
+    // chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        // query the active tab, which will be only one tab
+        // and inject the script in it
+		
+		// chrome.scripting.executeScript(
+		// {
+			// target: {tabId: tabs[0].id},
+			// files: ["refresh.js"],
+		// },
+		// () => { });
+    // });
+// }
+
 // async function getCurrentTab() {
 	// let queryOptions = { active: true, currentWindow: true };
 	// let [tab] = await chrome.tabs.query(queryOptions);
@@ -56,3 +70,18 @@ document.getElementById('filters').addEventListener('click', injectTheScript_fil
 document.getElementById('goLibWizard').addEventListener('click', linkLibWizard);
 
 document.getElementById('columns').addEventListener('click', injectTheScript_columns);
+
+// document.getElementById('refresh').addEventListener('click', injectTheScript_refresh);
+
+// chrome.storage.local.get("autoApplyColumns", function(obj) {
+	// console.log(obj["autoApplyColumns"]);
+		// if (obj["autoApplyColumns"] == true) {
+			// chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
+			  // if (changeInfo.status == 'complete' && tab.active) {
+
+				// injectTheScript_columns();
+
+			  // }
+			// })
+		// }
+	// });
