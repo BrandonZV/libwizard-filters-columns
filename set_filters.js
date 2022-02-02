@@ -40,7 +40,7 @@ function setFilters() {
 	document.getElementsByClassName("btn btn-primary btn-block addFilter-button")[0].click();
 
 	// Set session not ended
-	document.getElementById("filterOptions").value = "30: Object";
+	document.getElementById("filterOptions").value = "28: Object";
 	document.getElementById("filterOptions").dispatchEvent(new Event('change'));
 	document.getElementById("filterConditions").value = "not contains";
 	document.getElementById("filterConditions").dispatchEvent(new Event('change'));
