@@ -1,9 +1,9 @@
 {
 	"name": "Set LibWizard Filters/Columns",
 	"description": "Quickly set filters and columns in LibWizard",
-	"version": "0.4.1",
+	"version": "0.5",
 	"manifest_version": 3,
-	"permissions": ["storage", "scripting"],
+	"permissions": ["storage", "scripting", "activeTab"],
 	
 	"host_permissions": ["https://dcccd.libwizard.com/forms/reports/*"],
 	
@@ -18,6 +18,16 @@
 		  "matches": ["https://dcccd.libwizard.com/forms/reports/*"],
 		  "run_at": "document_idle",
 		  "js": ["autoApplyColumns.js"]
+		},
+		{
+			"matches": ["https://dcccd.libwizard.com/forms/reports/*"],
+			"run_at": "document_idle",
+			"js": ["checkout.js"]
+		},
+		{
+			"matches": ["https://dcccd.libwizard.com/forms/reports/*"],
+			"run_at": "document_idle",
+			"js": ["refresh.js"]
 		}
 	],
 	

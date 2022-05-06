@@ -25,6 +25,20 @@ function injectTheScript_columns() {
     });
 }
 
+function injectTheScript_checkout() {
+	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        // query the active tab, which will be only one tab
+        //and inject the script in it
+		
+		chrome.scripting.executeScript(
+		{
+			target: {tabId: tabs[0].id},
+			files: ["checkout.js"],
+		},
+		() => { });
+    });
+}
+
 // function injectTheScript_refresh() {
     // chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         // query the active tab, which will be only one tab
@@ -70,6 +84,8 @@ document.getElementById('filters').addEventListener('click', injectTheScript_fil
 document.getElementById('goLibWizard').addEventListener('click', linkLibWizard);
 
 document.getElementById('columns').addEventListener('click', injectTheScript_columns);
+
+injectTheScript_checkout();
 
 // document.getElementById('refresh').addEventListener('click', injectTheScript_refresh);
 

@@ -68,6 +68,15 @@ function setFilters() {
 	//document.getElementById("filterConditions").value = ">";
 	//document.getElementsByClassName("form-control ng-pristine ng-valid ng-touched").value = "1";
 	//document.getElementsByClassName("btn btn-primary btn-block addFilter-button")[0].click();
+	
+	chrome.storage.local.get("fullscreen_option", function(obj) {
+		if (obj["fullscreen_option"]){
+			document.getElementById('report').style.width = "100%";
+			if (document.getElementById('report').classList[0] == 'page-container') {
+				document.getElementById('report').classList.toggle('page-container');
+			}
+		}
+	});
 }
 
 function setSelectedValue(selectObj, valueToSet) {

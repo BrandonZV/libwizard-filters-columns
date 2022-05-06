@@ -3,6 +3,14 @@ function saveConfig(){
 	var collegeOption = temp.value;
 	chrome.storage.local.set({"collegeOption": collegeOption});
 	
+	var initials_temp = document.getElementById("initials");
+	var initials_text = initials_temp.value;
+	chrome.storage.local.set({"initials_text": initials_text});
+	
+	var fullscreen_temp = document.getElementById("checkbox-fullscreen");
+	var fullscreen_option = fullscreen_temp.checked;
+	chrome.storage.local.set({"fullscreen_option": fullscreen_option});
+	
 	var checklist = [
 						'checkbox-select',
 						'checkbox-submitted',
@@ -59,8 +67,14 @@ function saveConfig(){
 		// console.log(obj)
 	// });
 	
-	// var autoColumns = document.getElementById("auto-apply-columns").checked;
-	// chrome.storage.local.set({"autoApplyColumns": autoColumns});
+	var autoColumns = document.getElementById("auto-apply-columns").checked;
+	chrome.storage.local.set({"autoApplyColumns": autoColumns});
+	
+	var refreshPage = document.getElementById("refresh-page").checked;
+	chrome.storage.local.set({"refreshPage": refreshPage});
+	
+	var quantity = document.getElementById("quantity").value;
+	chrome.storage.local.set({"quantity": quantity});
 	
 }
 function constructor(){
@@ -97,10 +111,28 @@ function constructor(){
 		document.getElementById("college").value = obj["collegeOption"];
 	});
 	
-	// chrome.storage.local.get("autoApplyColumns", function(obj) {
-		// console.log(obj["collegeOption"]);
-		// document.getElementById("auto-apply-columns").checked = obj["autoApplyColumns"];
-	// });
+	chrome.storage.local.get("initials_text", function(obj) {
+		document.getElementById("initials").value = obj["initials_text"];
+	});
+	
+	chrome.storage.local.get("fullscreen_option", function(obj) {
+		document.getElementById("checkbox-fullscreen").checked = obj["fullscreen_option"];
+	});
+	
+	chrome.storage.local.get("autoApplyColumns", function(obj) {
+		console.log(obj["collegeOption"]);
+		document.getElementById("auto-apply-columns").checked = obj["autoApplyColumns"];
+	});
+	
+	chrome.storage.local.get("refreshPage", function(obj) {
+		console.log(obj["refreshPage"]);
+		document.getElementById("refresh-page").checked = obj["refreshPage"];
+	});
+	
+	chrome.storage.local.get("quantity", function(obj) {
+		// console.log(obj["refreshPage"]);
+		document.getElementById("quantity").value = obj["quantity"];
+	});
 	
 
 	 // TODO make this spretty, I'm just not skilled enough

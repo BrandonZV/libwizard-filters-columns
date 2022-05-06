@@ -13,6 +13,24 @@
 		<option value="Richland">Richland</option>
 	</select><br>
 	<br>
+	<input type="checkbox" id="checkbox-fullscreen" name="fullscreen" value="fullscreen" checked>
+	<label for="checkbox-fullscreen"> Apply Fullscreen with 'Filters' click?</label><br>
+	
+	<input type="checkbox" id="auto-apply-columns" name="auto-apply-columns" value="auto-apply-columns">
+	<label for="auto-apply-columns"> Automatically Set Displayed Columns?</label><br><br>
+	
+	<input type="checkbox" id="refresh-page" name="refresh-page" value="refresh-page">
+	<label for="refresh-page"> Automatically refresh the report?</label><br>
+	
+	<input type="number" id="quantity" name="quantity" min="1" value='1'>
+	<label for="quantity">How often do you want to refresh (in minutes)?</label><br>
+	
+	<br>
+	<input id="initials" name="initials">
+	<label for="initials"> Enter Your Initials</label>
+	<br>
+	Ctrl + Shft + Z will input the end time with your initials, click 'Session End' and submit the form.
+	<h2>Displayed Columns Options</h2>
 	
 	<input type="checkbox" id="checkbox-select" name="select" value="select" checked>
 	<label for="checkbox-select"> Select</label><br>
@@ -81,11 +99,11 @@
 	<input type="checkbox" id="checkbox-additional-comments" name="additional-comments" value="additional-comments" checked>
 	<label for="checkbox-additional-comments"> Additional Comments</label><br>
 	<br>
-	<!--
-	<input type="checkbox" id="auto-apply-columns" name="auto-apply-columns" value="auto-apply-columns">
-	<label for="auto-apply-columns"> Automatically Set Displayed Columns?</label><br>
+	
+	
+	
+	
 	<br>
-	-->
 	<button id="saveSettings">Save</button>
   </body>
   
