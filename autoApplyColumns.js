@@ -1,3 +1,13 @@
+function checkLoad() {
+	console.log('checkLoad');
+	var a = !!document.getElementsByName('select')[0];
+	if (a) {
+		setColumns();
+	} else {
+		setTimeout(checkLoad, 1000);
+	}
+}
+
 function setColumns() {
 	//var remove = document.getElementById("currentFiltersLabel").getElementsByClassName("btn empty")[0];
 	//remove.click();
@@ -38,18 +48,24 @@ function setColumns() {
 		'checkbox-select': 'select',
 		'checkbox-submitted': 'submitted',
 		'checkbox-location': '3894175',
-		'checkbox-arrival': '3916844',
+		'checkbox-arrival-date': '3916844',
+		'checkbox-arrival-date-mf': '4157653',
+		'checkbox-arrival-date-ms': '4157655',
+		'checkbox-arrival-time-mt': '4157802',
+		'checkbox-arrival-time-f': '4157804',
+		'checkbox-arrival-time-s': '4157818',
 		'checkbox-fname': '3894171',
 		'checkbox-lname': '3894172',
 		'checkbox-studentid': '3894234',
 		'checkbox-college-email': '3894173',
 		'checkbox-alt-email': '3894242',
+		'checkbox-lecture-lab': '3898088',
+		'checkbox-phone-number': '4162718',
 		'checkbox-paper-comp-test': '3930754',
 		'checkbox-course-name-number': '3894174',
 		'checkbox-section-number': '3920767',
 		'checkbox-instructor': '3894177',
 		'checkbox-test-number': '3898085',
-		'checkbox-lecture-lab': '3898088',
 		'checkbox-staff-queue-number': '3917156',
 		'checkbox-staff-test-number': '3902617',
 		'checkbox-staff-seat-number': '3902618',
@@ -73,12 +89,17 @@ function setColumns() {
 	chrome.storage.local.get({checklist2}, function(obj) {
 		var list = obj.checklist2;
 		for (var i in list) {
+			// console.log(i);
 			var map = mappingName[i];
-			// var tag = document.getElementsByTagName("mat-checkbox");
-			// console.log(tag);
+			var tag = document.getElementsByTagName("mat-checkbox");
+			//console.log(tag);
+			console.log(map);
 			var tagName = document.getElementsByName(map)[0];
-			console.log(document.getElementsByName(map));
-			console.log(tagName);
+			// console.log(tagName);
+			if (tagName == null) {
+				console.log('NULL value');
+				continue;
+			}
 			var testChecked = tagName.ariaChecked;
 			//var testChecked = document.getElementById(map).ariaChecked;
 			// console.log(map);
@@ -109,20 +130,27 @@ function setColumns() {
 // chrome.storage.local.get("autoApplyColumns", function(obj) {
 	// console.log(obj["autoApplyColumns"]);
 	// if (obj["autoApplyColumns"] == true) {
-		////setTimeout(2000);
-		// if ( !document.getElementsByName("select").ariaChecked ) {
-			// console.log( "It worked.");
-		// }
+		// setTimeout(3000);
+		// // if ( !document.getElementsByName("select").ariaChecked ) {
+			// // console.log( "It worked.");
+		// // }
+		// console.log("True and injected");
 		// setColumns();
-		////setColumns();
-		////document.addEventListener("DOMContentLoaded", setColumns());
+		// //setColumns();
+		// //document.addEventListener("DOMContentLoaded", setColumns());
 	// }
 	// });
 
-// chrome.storage.local.get("autoApplyColumns", function(obj) {
-	// console.log(obj["autoApplyColumns"]);
-	// if (obj["autoApplyColumns"] == true) {
-		// setTimeout(setColumns, 20s00);
+chrome.storage.local.get("autoApplyColumns", function(obj) {
+	console.log(obj["autoApplyColumns"]);
+	if (obj["autoApplyColumns"] == true) {
+		window.addEventListener('popstate', (event) => {
+			console.log('popstate triggered');
+			checkLoad();
+		});
+		setTimeout(checkLoad, 1000);
 		// document.addEventListener("load", setColumns());
-	// }
-	// });
+	}
+	});
+	
+// https://stackoverflow.com/questions/53939205/how-to-avoid-extension-context-invalidated-errors-when-messaging-after-an-exte

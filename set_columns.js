@@ -107,13 +107,13 @@ function setColumns() {
 	chrome.storage.local.get({checklist2}, function(obj) {
 		var list = obj.checklist2;
 		for (var i in list) {
-			console.log(i);
+			// console.log(i);
 			var map = mappingName[i];
 			var tag = document.getElementsByTagName("mat-checkbox");
 			//console.log(tag);
 			console.log(map);
 			var tagName = document.getElementsByName(map)[0];
-			console.log(tagName);
+			// console.log(tagName);
 			if (tagName == null) {
 				continue;
 			}
